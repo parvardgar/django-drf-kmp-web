@@ -6,8 +6,9 @@ class NotificationChannelStrategy(ABC):
     @abstractmethod
     def send(
         self,
+        *,
         recipient,
-        message: str,
-        subject: str | None = None,
+        config: dict,
+        context: dict,
     ) -> None:
         raise NotImplementedError

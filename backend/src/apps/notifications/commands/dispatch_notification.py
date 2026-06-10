@@ -15,15 +15,9 @@ def dispatch_notification(
 ):
     context = context or {}
 
-    template = NOTIFICATION_TEMPLATES[event]
+    notification_template = NOTIFICATION_TEMPLATES[event]
 
-    subject = template.get("subject")
-
-    message = template["message"].format(
-        **context
-    )
-
-    channels = template["channels"]
+    channels = notification_template["channels"]
 
     for channel in channels:
 
@@ -31,6 +25,6 @@ def dispatch_notification(
 
         strategy.send(
             recipient=recipient,
-            message=message,
-            subject=subject,
+            config=notification_template[channel],
+            context=context,
         )
