@@ -121,3 +121,13 @@ CELERY_RESULT_SERIALIZER = "json"
 CELERY_TIMEZONE = TIME_ZONE
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
+
+REST_FRAMEWORK = {
+    "EXCEPTION_HANDLER": (
+        "common.exception_handlers.custom_exception_handler"
+    ),
+    "DEFAULT_PAGINATION_CLASS": (
+        "common.pagination.StandardPageNumberPagination"
+    ),
+    "PAGE_SIZE": 20,
+}
