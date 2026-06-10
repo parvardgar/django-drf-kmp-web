@@ -2,4 +2,4 @@
 
 class CacheKeys:
     USER = "user:{id}"
-    OTP = "otp:{mobile}"
+    REGISTRATION_OTP = "otp:{mobile}"
