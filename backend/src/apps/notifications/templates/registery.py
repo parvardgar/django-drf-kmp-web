@@ -1,4 +1,4 @@
-from notifications.enums import (
+from apps.notifications.enums import (
     NotificationChannel,
     NotificationEvent,
 )

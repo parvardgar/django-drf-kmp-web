@@ -2,12 +2,12 @@ import secrets
 
 from django.core.cache import cache
 
-from users.models import User
+from apps.users.models import User
 from common.cache.keys import CacheKeys
 
-from notifications.enums import NotificationEvent
-from notifications.commands.dispatch_notification import dispatch_notification
-from users.exceptions import UserAlreadyExistsException
+from apps.notifications.enums import NotificationEvent
+from apps.notifications.commands.dispatch_notification import dispatch_notification
+from apps.users.exceptions import UserAlreadyExistsException
 
 def request_registration_otp(
     mobile: str,
@@ -29,7 +29,6 @@ def request_registration_otp(
         otp,
         timeout=120,
     )
-
     class Recipient:
         mobile = None
 

@@ -1,4 +1,4 @@
-from notifications.tasks import (
+from apps.notifications.tasks import (
     send_sms_task,
 )
 
@@ -21,7 +21,6 @@ class SmsChannel(NotificationChannelStrategy):
             str(context[token_name])
             for token_name in config["tokens"]
         ]
-
         send_sms_task.delay(
             mobile=recipient.mobile,
             template=config["template"],

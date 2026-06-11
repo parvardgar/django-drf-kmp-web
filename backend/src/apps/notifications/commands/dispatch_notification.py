@@ -1,8 +1,8 @@
-from notifications.registry import (
+from apps.notifications.registry import (
     CHANNEL_REGISTRY,
 )
 
-from notifications.templates.registery import (
+from apps.notifications.templates.registery import (
     NOTIFICATION_TEMPLATES,
 )
 

@@ -1,9 +1,11 @@
 from django.core.cache import cache
+from django.db import transaction
 
 from common.cache.keys import CacheKeys
-from users.models import User
-from users.exceptions import OTPExpiredException, OTPInvalidException
+from apps.users.models import User
+from apps.users.exceptions import OTPExpiredException, OTPInvalidException
 
+@transaction.atomic
 def register_user(
     *,
     mobile: str,

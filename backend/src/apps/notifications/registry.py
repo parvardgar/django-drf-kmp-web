@@ -1,9 +1,9 @@
-from notifications.enums import NotificationChannel
+from apps.notifications.enums import NotificationChannel
 
-from notifications.channels.sms import SmsChannel
-from notifications.channels.email import EmailChannel
-from notifications.channels.push import PushChannel
-from notifications.channels.in_app import InAppChannel
+from apps.notifications.channels.sms import SmsChannel
+from apps.notifications.channels.email import EmailChannel
+from apps.notifications.channels.push import PushChannel
+from apps.notifications.channels.in_app import InAppChannel
 
 
 CHANNEL_REGISTRY = {

@@ -1,6 +1,6 @@
 from celery import shared_task
 
-from notifications.providers.sms.kavenegar import (
+from apps.notifications.providers.sms.kavenegar import (
     KavenegarSmsProvider,
 )
 
@@ -17,7 +17,6 @@ def send_sms_task(
     tokens: list[str],
 ):
     provider = KavenegarSmsProvider()
-
     provider.send(
         mobile=mobile,
         template=template,

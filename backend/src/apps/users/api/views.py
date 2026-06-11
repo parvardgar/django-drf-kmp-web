@@ -2,11 +2,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from users.api.serializers import (
+from apps.users.api.serializers import (
     RequestRegistrationOtpSerializer, RegisterSerializer
 )
-from users.commands.request_registration_otp import request_registration_otp
-from users.commands.register_user import register_user
+from apps.users.commands.request_registration_otp import request_registration_otp
+from apps.users.commands.register_user import register_user
 from common.responses import success_response, error_response
 
 
@@ -60,5 +60,5 @@ class RegisterView(
                 "id": user.id,
                 "mobile": user.mobile,
             },
-            status=status.HTTP_201_CREATED,
+            status_code=status.HTTP_201_CREATED,
         )
