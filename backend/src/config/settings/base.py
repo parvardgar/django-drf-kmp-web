@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 import environ
 
@@ -23,6 +24,7 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY_APPS = [
     "rest_framework",
+    'rest_framework_simplejwt.token_blacklist',
 ]
 LOCAL_APPS = [
     'apps.users.apps.UsersConfig',
@@ -143,12 +145,18 @@ REST_FRAMEWORK = {
     "EXCEPTION_HANDLER": (
         "common.exception_handlers.custom_exception_handler"
     ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
     "DEFAULT_PAGINATION_CLASS": (
         "common.pagination.StandardPageNumberPagination"
     ),
     "PAGE_SIZE": 20,
 }
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+}
 
 # Kavenegar
-
 KAVENEGAR_API_KEY = env('KAVENEGAR_API_KEY')

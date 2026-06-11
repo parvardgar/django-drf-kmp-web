@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework import status
+from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.users.api.serializers import (
     RequestRegistrationOtpSerializer, RegisterSerializer
@@ -53,12 +53,15 @@ class RegisterView(
                 "otp"
             ],
         )
-
+        refresh = RefreshToken.for_user(user)
+        
         return success_response(
             message="User created successfully",
             data={
                 "id": user.id,
                 "mobile": user.mobile,
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
             },
             status_code=status.HTTP_201_CREATED,
         )

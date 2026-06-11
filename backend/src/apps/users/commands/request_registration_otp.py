@@ -34,7 +34,7 @@ def request_registration_otp(
 
     recipient = Recipient()
     recipient.mobile = mobile
-
+    print("OTP", otp)
     dispatch_notification(
         event=NotificationEvent.OTP_CREATED,
         recipient=recipient,
